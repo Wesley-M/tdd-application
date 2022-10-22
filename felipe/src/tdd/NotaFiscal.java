@@ -5,10 +5,12 @@ public class NotaFiscal {
 	private String cliente;
 	private double valor;
 	private double taxa;
+	private boolean foiEnviadaPorEmail;
 	
 	public NotaFiscal(String cliente, double valor, String servico) {
 		this.cliente = cliente;
 		this.valor = valor;
+		this.foiEnviadaPorEmail = false;
 		
 		if (servico.equals("CONSULTORIA")) {
 			this.taxa = 0.25;
@@ -29,6 +31,14 @@ public class NotaFiscal {
 
 	public double getImposto() {
 		return this.getValor() * this.taxa;
+	}
+
+	public boolean getFoiEnviadaPorEmail() {
+		return this.foiEnviadaPorEmail;
+	}
+
+	public void setFoiEnviadaPorEmail(boolean status) {
+		this.foiEnviadaPorEmail = status;
 	}
 
 }

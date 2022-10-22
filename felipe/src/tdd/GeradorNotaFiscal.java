@@ -9,4 +9,12 @@ public class GeradorNotaFiscal {
 		return nf;
 	}
 
+	public NotaFiscal processaNotaFiscal(NotaFiscal nf) {
+		NotaFiscalDao nfDao = new NotaFiscalDao();
+		nfDao.salva(nf);
+		nf.setFoiEnviadaPorEmail(true);
+		
+		return nf;		
+	}
+
 }
