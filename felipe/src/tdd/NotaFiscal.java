@@ -9,16 +9,16 @@ public class NotaFiscal {
 	private boolean foiEnviadaParaSAP;
 	private boolean persistida;
 	
-	public NotaFiscal(String cliente, double valor, String servico) {
+	public NotaFiscal(String cliente, double valor, Servico servico) {
 		this.cliente = cliente;
 		this.valor = valor;
 		this.foiEnviadaPorEmail = false;
 		this.foiEnviadaParaSAP = false;
 		this.persistida = false;
-		
-		if (servico.equals("CONSULTORIA")) {
+
+		if (servico == Servico.CONSULTORIA) {
 			this.taxa = 0.25;
-		} else if (servico.equals("TREINAMENTO")) {
+		} else if (servico == Servico.TREINAMENTO) {
 			this.taxa = 0.15;
 		} else {
 			this.taxa = 0.06;

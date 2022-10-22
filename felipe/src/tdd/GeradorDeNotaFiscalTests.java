@@ -11,18 +11,23 @@ public class GeradorDeNotaFiscalTests {
 	
 	private String cliente;
 	private String endereco;
-	private String tipoServico;
+	private Servico tipoServico;
 	private double valorFatura;
+	private double imposto;
 	private GeradorNotaFiscal gerador;
 	private Fatura fatura;
 	private final static double DELTA = 0;
+	private final static double TAXA_CONSULTORIA = 0.25;
+	private final static double TAXA_TREINAMENTO = 0.15;
+	private final static double TAXA_OUTROS = 0.06;
 	
 	@Before
 	public void setup() {
 		this.cliente = "Bob";
 		this.endereco = "Rua do Sol, 120, Centro, Rio Branco - AC";
-		this.tipoServico = "OUTROS";
+		this.tipoServico = Servico.OUTROS;
 		this.valorFatura = 2300.50;
+		this.imposto = valorFatura * TAXA_OUTROS;
 		this.fatura = new Fatura(cliente, endereco, tipoServico, valorFatura);
 		this.gerador = new GeradorNotaFiscal();
 	}
@@ -31,8 +36,6 @@ public class GeradorDeNotaFiscalTests {
 	public void verificaImpostoNotaTipoOutros() {
 		NotaFiscal nf = gerador.geraNotaFiscal(fatura);
 		
-		double imposto = valorFatura * 0.06;
-		
 		assertEquals(cliente, nf.getCliente());
 		assertEquals(valorFatura, nf.getValor(), DELTA);
 		assertEquals(imposto, nf.getImposto(), DELTA);
@@ -40,13 +43,13 @@ public class GeradorDeNotaFiscalTests {
 	
 	@Test
 	public void verificaImpostoNotaTipoConsultoria() {
-		this.tipoServico = "CONSULTORIA";
+		this.tipoServico = Servico.CONSULTORIA;
 		
 		fatura = new Fatura(cliente, endereco, tipoServico, valorFatura);
 		
 		NotaFiscal nf = gerador.geraNotaFiscal(fatura);
 		
-		double imposto = valorFatura * 0.25;
+		imposto = valorFatura * TAXA_CONSULTORIA;
 		
 		assertEquals(cliente, nf.getCliente());
 		assertEquals(valorFatura, nf.getValor(), DELTA);
@@ -55,13 +58,13 @@ public class GeradorDeNotaFiscalTests {
 	
 	@Test
 	public void verificaImpostoNotaTipoTreinamento() {
-		this.tipoServico = "TREINAMENTO";
+		this.tipoServico = Servico.TREINAMENTO;
 		
 		fatura = new Fatura(cliente, endereco, tipoServico, valorFatura);
 		
 		NotaFiscal nf = gerador.geraNotaFiscal(fatura);
 		
-		double imposto = valorFatura * 0.15;
+		imposto = valorFatura * TAXA_TREINAMENTO;
 		
 		assertEquals(cliente, nf.getCliente());
 		assertEquals(valorFatura, nf.getValor(), DELTA);
