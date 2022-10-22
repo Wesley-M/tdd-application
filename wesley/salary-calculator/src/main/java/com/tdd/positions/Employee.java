@@ -42,17 +42,36 @@ public abstract class Employee implements Salaried {
     }
 
     public void setBaseSalary(Double baseSalary) {
-        validateBaseSalary(baseSalary);
+        validateNegativeOrZeroBaseSalary(baseSalary);
         this.baseSalary = baseSalary;
     }
 
     private void validate() {
-        validateBaseSalary(baseSalary);
+        validateNullField(baseSalary, "base salary");
+        validateNegativeOrZeroBaseSalary(baseSalary);
+
+        validateNullField(name, "name");
+        validateEmptyField(name, "name");
+
+        validateNullField(email, "email");
+        validateEmptyField(email, "email");
     }
 
-    private void validateBaseSalary(Double baseSalary) {
+    private void validateNegativeOrZeroBaseSalary(Double baseSalary) {
         if (baseSalary <= 0) {
             throw new IllegalArgumentException("Base salary can't be negative or zero");
+        }
+    }
+
+    private void validateNullField(Object obj, String field) {
+        if (obj == null) {
+            throw new IllegalArgumentException(field + " can't be null");
+        }
+    }
+
+    private void validateEmptyField(String str, String field) {
+        if (str.equals("")) {
+            throw new IllegalArgumentException(field + " can't be empty");
         }
     }
 }
