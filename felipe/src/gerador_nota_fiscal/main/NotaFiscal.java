@@ -1,4 +1,4 @@
-package gerador_nota_fiscal;
+package gerador_nota_fiscal.main;
 
 public class NotaFiscal {
 
@@ -10,7 +10,7 @@ public class NotaFiscal {
 	private boolean foiEnviadaParaSAP;
 	private boolean persistida;
 	
-	public NotaFiscal(String cliente, double valor, Servico servico) {
+	public NotaFiscal(String cliente, double valor, Servico servico) {		
 		this.cliente = cliente;
 		this.valor = valor;
 		this.foiEnviadaPorEmail = false;

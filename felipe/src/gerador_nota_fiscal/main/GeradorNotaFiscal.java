@@ -1,4 +1,4 @@
-package gerador_nota_fiscal;
+package gerador_nota_fiscal.main;
 
 public class GeradorNotaFiscal {
 	
