@@ -1,4 +1,4 @@
-package com.tdd;
+package com.tdd.enums;
 
 public enum Position {
     DEVELOPER,

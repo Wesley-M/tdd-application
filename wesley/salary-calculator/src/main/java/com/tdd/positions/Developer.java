@@ -1,4 +1,6 @@
-package com.tdd;
+package com.tdd.positions;
+
+import com.tdd.enums.Position;
 
 public class Developer extends Employee {
     public Developer(String name, String email, Double baseSalary) {

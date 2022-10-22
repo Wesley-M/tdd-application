@@ -1,4 +1,7 @@
-package com.tdd;
+package com.tdd.positions;
+
+import com.tdd.enums.Position;
+import com.tdd.interfaces.Salaried;
 
 public abstract class Employee implements Salaried {
     private String name;
