@@ -1,5 +1,8 @@
 package com.tdd;
 
 public enum Position {
-    DEVELOPER
+    DEVELOPER,
+    DBA,
+    TESTER,
+    MANAGER
 }
