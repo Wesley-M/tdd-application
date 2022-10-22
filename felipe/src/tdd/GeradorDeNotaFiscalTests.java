@@ -115,5 +115,16 @@ public class GeradorDeNotaFiscalTests {
 		
 		assertTrue(nf.getFoiEnviadaParaSAP());
 	}
+	
+	@Test
+	public void verificaPersistenciaNoBD() {
+		NotaFiscal nf = gerador.geraNotaFiscal(fatura);
+		
+		assertFalse(nf.getPersistida());
+		
+		nf = gerador.processaNotaFiscal(nf);
+		
+		assertTrue(nf.getPersistida());
+	}
 
 }
