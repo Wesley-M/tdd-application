@@ -5,6 +5,7 @@ import com.tdd.enums.Position;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.Executable;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -55,7 +56,7 @@ public class EmployeeTest {
     }
 
     @Test
-    @DisplayName("Negative salary when employee is created")
+    @DisplayName("Negative or zero salary when employee is created")
     void givenNegativeOrZeroSalaryWhenEmployeeIsCreatedThenEmployeeThrowsException() {
         IllegalArgumentException thrownNeg = assertThrows(
                 IllegalArgumentException.class,
@@ -75,7 +76,7 @@ public class EmployeeTest {
     }
 
     @Test
-    @DisplayName("Negative salary when setting employee base salary")
+    @DisplayName("Negative or zero salary when setting employee base salary")
     void givenNegativeOrZeroSalaryWhenSettingBaseSalaryThenThrowsException() {
         IllegalArgumentException thrownNeg = assertThrows(
                 IllegalArgumentException.class,
@@ -92,5 +93,48 @@ public class EmployeeTest {
         );
 
         assertTrue(thrownZero.getMessage().contains("Base salary can't be negative or zero"));
+    }
+
+    @Test
+    @DisplayName("Null fields throw exception")
+    void checkIfNullFieldsThrowException() {
+        checkForIllegal(
+                () -> new Developer(null, "wesley@gmail.com", 4000.0),
+                "name can't be null"
+        );
+
+        checkForIllegal(
+                () -> new Developer("Wesley", null, 4000.0),
+                "email can't be null"
+        );
+
+        checkForIllegal(
+                () -> new Developer("Wesley", "wesley@gmail.com", null),
+                "base salary can't be null"
+        );
+    }
+
+    @Test
+    @DisplayName("Empty fields throw exception")
+    void checkIfEmptyFieldsThrowException() {
+        checkForIllegal(
+                () -> new Developer("", "wesley@gmail.com", 4000.0),
+                "name can't be empty"
+        );
+
+        checkForIllegal(
+                () -> new Developer("Wesley", "", 4000.0),
+                "email can't be empty"
+        );
+    }
+
+    private void checkForIllegal(Executable exe, String message) {
+        IllegalArgumentException thrownNeg = assertThrows(
+                IllegalArgumentException.class,
+                exe,
+                message
+        );
+
+        assertTrue(thrownNeg.getMessage().contains(message));
     }
 }
