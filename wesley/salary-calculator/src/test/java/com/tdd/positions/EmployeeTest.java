@@ -1,12 +1,12 @@
 package com.tdd.positions;
 
 import com.tdd.enums.Position;
-import com.tdd.positions.*;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class EmployeeTest {
     Developer employee = null;
@@ -52,5 +52,45 @@ public class EmployeeTest {
 
         employee.setBaseSalary(7500.0);
         assertEquals(employee.getBaseSalary(), 7500);
+    }
+
+    @Test
+    @DisplayName("Negative salary when employee is created")
+    void givenNegativeOrZeroSalaryWhenEmployeeIsCreatedThenEmployeeThrowsException() {
+        IllegalArgumentException thrownNeg = assertThrows(
+                IllegalArgumentException.class,
+                () -> new Developer("Wesley Santos", "wesley123@gmail.com", -6000.0),
+                "Expected to throw exception, but nothing happened"
+        );
+
+        assertTrue(thrownNeg.getMessage().contains("Base salary can't be negative or zero"));
+
+        IllegalArgumentException thrownZero = assertThrows(
+                IllegalArgumentException.class,
+                () -> new Developer("Wesley Santos", "wesley123@gmail.com", 0.0),
+                "Expected to throw exception, but nothing happened"
+        );
+
+        assertTrue(thrownZero.getMessage().contains("Base salary can't be negative or zero"));
+    }
+
+    @Test
+    @DisplayName("Negative salary when setting employee base salary")
+    void givenNegativeOrZeroSalaryWhenSettingBaseSalaryThenThrowsException() {
+        IllegalArgumentException thrownNeg = assertThrows(
+                IllegalArgumentException.class,
+                () -> employee.setBaseSalary(-1000.0),
+                "Expected to throw exception, but nothing happened"
+        );
+
+        assertTrue(thrownNeg.getMessage().contains("Base salary can't be negative or zero"));
+
+        IllegalArgumentException thrownZero = assertThrows(
+                IllegalArgumentException.class,
+                () -> employee.setBaseSalary(0.0),
+                "Expected to throw exception, but nothing happened"
+        );
+
+        assertTrue(thrownZero.getMessage().contains("Base salary can't be negative or zero"));
     }
 }

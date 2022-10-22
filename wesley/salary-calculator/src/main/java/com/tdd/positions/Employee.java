@@ -14,6 +14,7 @@ public abstract class Employee implements Salaried {
         this.email = email;
         this.baseSalary = baseSalary;
         this.position = position;
+        validate();
     }
 
     public String getName() {
@@ -41,6 +42,17 @@ public abstract class Employee implements Salaried {
     }
 
     public void setBaseSalary(Double baseSalary) {
+        validateBaseSalary(baseSalary);
         this.baseSalary = baseSalary;
+    }
+
+    private void validate() {
+        validateBaseSalary(baseSalary);
+    }
+
+    private void validateBaseSalary(Double baseSalary) {
+        if (baseSalary <= 0) {
+            throw new IllegalArgumentException("Base salary can't be negative or zero");
+        }
     }
 }
