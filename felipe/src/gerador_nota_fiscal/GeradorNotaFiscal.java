@@ -1,6 +1,10 @@
 package gerador_nota_fiscal;
 
 public class GeradorNotaFiscal {
+	
+	private final static Smtp smtp = new Smtp();
+	private final static NotaFiscalDao nfDao = new NotaFiscalDao();
+	private final static SAP sap = new SAP();
 
 	public NotaFiscal geraNotaFiscal(Fatura fatura) {
 		
@@ -10,10 +14,6 @@ public class GeradorNotaFiscal {
 	}
 
 	public NotaFiscal processaNotaFiscal(NotaFiscal nf) {
-		Smtp smtp = new Smtp();
-		NotaFiscalDao nfDao = new NotaFiscalDao();
-		SAP sap = new SAP();
-		
 		smtp.envia(nf);
 		sap.envia(nf);
 		nfDao.salva(nf);
