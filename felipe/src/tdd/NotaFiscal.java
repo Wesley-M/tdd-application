@@ -5,6 +5,7 @@ public class NotaFiscal {
 	private String cliente;
 	private double valor;
 	private double taxa;
+	
 	private boolean foiEnviadaPorEmail;
 	private boolean foiEnviadaParaSAP;
 	private boolean persistida;

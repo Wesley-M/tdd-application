@@ -14,8 +14,10 @@ public class GeradorDeNotaFiscalTests {
 	private Servico tipoServico;
 	private double valorFatura;
 	private double imposto;
+	
 	private GeradorNotaFiscal gerador;
 	private Fatura fatura;
+	
 	private final static double DELTA = 0;
 	private final static double TAXA_CONSULTORIA = 0.25;
 	private final static double TAXA_TREINAMENTO = 0.15;
