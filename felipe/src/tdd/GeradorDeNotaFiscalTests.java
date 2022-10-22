@@ -20,7 +20,7 @@ public class GeradorDeNotaFiscalTests {
 	}
 	
 	@Test
-	public void verificaNotaTipoOutros() {
+	public void verificaImpostoNotaTipoOutros() {
 		Fatura fatura = new Fatura(cliente, endereco, tipoServico, valorFatura);
 		
 		GeradorNotaFiscal gerador = new GeradorNotaFiscal();
@@ -35,7 +35,7 @@ public class GeradorDeNotaFiscalTests {
 	}
 	
 	@Test
-	public void verificaNotaTipoConsultoria() {
+	public void verificaImpostoNotaTipoConsultoria() {
 		this.tipoServico = "CONSULTORIA";
 		
 		Fatura fatura = new Fatura(cliente, endereco, tipoServico, valorFatura);
@@ -52,7 +52,7 @@ public class GeradorDeNotaFiscalTests {
 	}
 	
 	@Test
-	public void verificaNotaTipoTreinamento() {
+	public void verificaImpostoNotaTipoTreinamento() {
 		this.tipoServico = "TREINAMENTO";
 		
 		Fatura fatura = new Fatura(cliente, endereco, tipoServico, valorFatura);
@@ -66,6 +66,22 @@ public class GeradorDeNotaFiscalTests {
 		Assert.assertTrue(nf.getCliente().equals(cliente));
 		Assert.assertTrue(nf.getValor() == valorFatura);
 		Assert.assertTrue(nf.getImposto() == imposto);
+	}
+	
+	@Test
+	public void verificaNomeDoClienteNaNota() {
+		GeradorNotaFiscal gerador = new GeradorNotaFiscal();
+		
+		Fatura fatura = new Fatura(cliente, endereco, tipoServico, valorFatura);
+		NotaFiscal nf = gerador.geraNotaFiscal(fatura);
+		
+		Assert.assertTrue(nf.getCliente().equals(cliente));
+		
+		String novoCliente = "Alice";
+		fatura = new Fatura(novoCliente, endereco, tipoServico, valorFatura);
+		nf = gerador.geraNotaFiscal(fatura);
+		
+		Assert.assertEquals(novoCliente, nf.getCliente());
 	}
 
 }

@@ -2,9 +2,11 @@ package tdd;
 
 public class Fatura {
 	
+	private String cliente;
 	private String servico;
 
-	public Fatura(String string, String string2, String servico, double d) {
+	public Fatura(String cliente, String endereco, String servico, double valor) {
+		this.cliente = cliente;
 		this.servico = servico;
 	}
 
@@ -14,8 +16,7 @@ public class Fatura {
 	}
 
 	public String getCliente() {
-		// TODO Auto-generated method stub
-		return "Bob";
+		return this.cliente;
 	}
 
 	public String getServico() {
