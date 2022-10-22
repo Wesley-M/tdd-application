@@ -11,7 +11,7 @@ public class EmployeeTest {
 
     @BeforeEach
     public void init(){
-        employee = new Employee("Wesley Santos", "wesley123@gmail.com", 6000.0);
+        employee = new Employee("Wesley Santos", "wesley123@gmail.com", 6000.0, Position.DEVELOPER);
     }
 
     @Test
