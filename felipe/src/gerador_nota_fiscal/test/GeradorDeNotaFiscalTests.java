@@ -1,4 +1,4 @@
-package gerador_nota_fiscal;
+package gerador_nota_fiscal.test;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -6,6 +6,11 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import gerador_nota_fiscal.main.Fatura;
+import gerador_nota_fiscal.main.GeradorNotaFiscal;
+import gerador_nota_fiscal.main.NotaFiscal;
+import gerador_nota_fiscal.main.Servico;
 
 public class GeradorDeNotaFiscalTests {
 	
