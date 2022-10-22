@@ -11,7 +11,7 @@ class DeveloperTest {
 
     @BeforeEach
     public void init(){
-        dev = new Developer("Wesley Santos", "wesley123@gmail.com", 6000.0);
+        dev = new Developer("Wesley Santos", "wesley123@gmail.com", 3000.0);
     }
 
     @Test
@@ -23,6 +23,6 @@ class DeveloperTest {
         Developer auxDev = new Developer("Wesley Santos", "wesley123@gmail.com", 2000.0);
 
         // Discount of 10%
-        assertEquals(auxDev.getSalary(), dev.getBaseSalary() * 0.9);
+        assertEquals(auxDev.getSalary(), auxDev.getBaseSalary() * 0.9);
     }
 }
