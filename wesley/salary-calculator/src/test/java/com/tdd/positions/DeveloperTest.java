@@ -18,12 +18,15 @@ class DeveloperTest {
     @Test
     @DisplayName("Get salary [Successful]")
     void whenGetSalaryThenSalaryIsRetrieved() {
-        // Discount of 20%
+        // Discount of 20% | = 3000
         assertEquals(dev.getSalary(), dev.getBaseSalary() * 0.8);
 
-        Developer auxDev = new Developer("Wesley Santos", "wesley123@gmail.com", 2000.0);
+        // Discount of 20% | > 3000
+        Developer auxDev = new Developer("Wesley Santos", "wesley123@gmail.com", 10000.0);
+        assertEquals(auxDev.getSalary(), auxDev.getBaseSalary() * 0.8);
 
-        // Discount of 10%
+        // Discount of 10% | < 3000
+        auxDev = new Developer("Wesley Santos", "wesley123@gmail.com", 2000.0);
         assertEquals(auxDev.getSalary(), auxDev.getBaseSalary() * 0.9);
     }
 }

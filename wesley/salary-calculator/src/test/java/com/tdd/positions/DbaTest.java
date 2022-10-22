@@ -19,12 +19,15 @@ class DbaTest {
     @Test
     @DisplayName("Get salary [Successful]")
     void whenGetSalaryThenSalaryIsRetrieved() {
-        // Discount of 25%
+        // Discount of 25% | = 2000
         assertEquals(dba.getSalary(), dba.getBaseSalary() * 0.75);
 
-        Dba auxDba = new Dba("Wesley Santos", "wesley123@gmail.com", 1500.0);
+        // Discount of 25% | > 2000
+        Dba auxDba = new Dba("Wesley Santos", "wesley123@gmail.com", 10000.0);
+        assertEquals(auxDba.getSalary(), auxDba.getBaseSalary() * 0.75);
 
-        // Discount of 15%
+        // Discount of 15% | < 2000
+        auxDba = new Dba("Wesley Santos", "wesley123@gmail.com", 1500.0);
         assertEquals(auxDba.getSalary(), auxDba.getBaseSalary() * 0.85);
     }
 }
