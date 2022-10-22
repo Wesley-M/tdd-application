@@ -1,6 +1,6 @@
 package com.tdd;
 
-public abstract class Employee {
+public abstract class Employee implements Salaried {
     private String name;
     private String email;
     private Double baseSalary;
