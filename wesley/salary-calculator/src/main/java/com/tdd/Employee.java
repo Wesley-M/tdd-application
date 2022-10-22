@@ -28,4 +28,20 @@ public class Employee {
     public Position getPosition() {
         return position;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setBaseSalary(Double baseSalary) {
+        this.baseSalary = baseSalary;
+    }
+
+    public void setPosition(Position position) {
+        this.position = position;
+    }
 }
