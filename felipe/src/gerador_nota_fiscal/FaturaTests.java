@@ -53,5 +53,15 @@ public class FaturaTests {
 			assertEquals("Valor não pode ser menor ou igual a zero", e.getMessage());
 		}
 	}
+	
+	@Test
+	public void verificaCriarFaturaComNomeNull() {
+		try {
+			cliente = null;
+			fatura = new Fatura(cliente, endereco, tipoServico, valorFatura);
+		} catch (Exception e) {
+			assertEquals("Nome não pode ser null", e.getMessage());
+		}
+	}
 
 }

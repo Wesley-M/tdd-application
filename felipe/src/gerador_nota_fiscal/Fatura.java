@@ -13,6 +13,10 @@ public class Fatura {
 			throw new Exception("Valor não pode ser menor ou igual a zero");
 		}
 		
+		if (cliente == null) {
+			throw new Exception("Nome não pode ser null");
+		}
+		
 		this.cliente = cliente;
 		this.servico = servico;
 		this.endereco = endereco;
