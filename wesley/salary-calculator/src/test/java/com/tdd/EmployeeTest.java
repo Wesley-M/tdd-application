@@ -38,4 +38,20 @@ public class EmployeeTest {
         auxEmployee = new Employee("Wesley Santos", "wesley123@gmail.com", 6000.0, Position.MANAGER);
         assertEquals(auxEmployee.getPosition(), Position.MANAGER);
     }
+
+    @Test
+    @DisplayName("Setters work [successful]")
+    void whenSetterIsUsedThenDataChanges() {
+        employee.setName("Wesley");
+        assertEquals(employee.getName(), "Wesley");
+
+        employee.setEmail("wesley@gmail.com");
+        assertEquals(employee.getEmail(), "wesley@gmail.com");
+
+        employee.setBaseSalary(7500.0);
+        assertEquals(employee.getBaseSalary(), 7500);
+
+        employee.setPosition(Position.MANAGER);
+        assertEquals(employee.getPosition(), Position.MANAGER);
+    }
 }
