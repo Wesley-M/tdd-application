@@ -18,6 +18,6 @@ Deve-se implementar uma calculadora de salário de funcionários. Um funcionári
 Para usar a calculadora, primeiro importe a classe `SalaryCalculator` e faça:
 
 ```java
-Manager manager = new Manager('Felipe', 'felipe@gmail.com', 3000)
+Manager manager = new Manager('Felipe', 'felipe@gmail.com', 3000);
 SalaryCalculator.getSalary(manager); // 3000 * 0.8 = 2400
 ```
