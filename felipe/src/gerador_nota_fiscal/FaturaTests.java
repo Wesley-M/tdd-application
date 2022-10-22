@@ -40,7 +40,7 @@ public class FaturaTests {
 			valorFatura = -100;
 			fatura = new Fatura(cliente, endereco, tipoServico, valorFatura);
 		} catch (Exception e) {
-			assertEquals("Valor não pode ser negativo", e.getMessage());
+			assertEquals("Valor não pode ser menor ou igual a zero", e.getMessage());
 		}
 	}
 	
@@ -50,7 +50,7 @@ public class FaturaTests {
 			valorFatura = 0;
 			fatura = new Fatura(cliente, endereco, tipoServico, valorFatura);
 		} catch (Exception e) {
-			assertEquals("Valor não pode ser igual a zero", e.getMessage());
+			assertEquals("Valor não pode ser menor ou igual a zero", e.getMessage());
 		}
 	}
 

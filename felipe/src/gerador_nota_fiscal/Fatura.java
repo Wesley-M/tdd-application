@@ -9,10 +9,8 @@ public class Fatura {
 
 	public Fatura(String cliente, String endereco, Servico servico, double valor) throws Exception {
 		
-		if (valor < 0) {
-			throw new Exception("Valor não pode ser negativo");
-		} else if (valor == 0) {
-			throw new Exception("Valor não pode ser igual a zero");
+		if (valor <= 0) {
+			throw new Exception("Valor não pode ser menor ou igual a zero");
 		}
 		
 		this.cliente = cliente;
