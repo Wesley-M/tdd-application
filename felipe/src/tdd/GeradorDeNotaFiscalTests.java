@@ -13,6 +13,8 @@ public class GeradorDeNotaFiscalTests {
 	private String endereco;
 	private String tipoServico;
 	private double valorFatura;
+	private GeradorNotaFiscal gerador;
+	private Fatura fatura;
 	private final static double DELTA = 0;
 	
 	@Before
@@ -21,14 +23,12 @@ public class GeradorDeNotaFiscalTests {
 		this.endereco = "Rua do Sol, 120, Centro, Rio Branco - AC";
 		this.tipoServico = "OUTROS";
 		this.valorFatura = 2300.50;
+		this.fatura = new Fatura(cliente, endereco, tipoServico, valorFatura);
+		this.gerador = new GeradorNotaFiscal();
 	}
 	
 	@Test
 	public void verificaImpostoNotaTipoOutros() {
-		Fatura fatura = new Fatura(cliente, endereco, tipoServico, valorFatura);
-		
-		GeradorNotaFiscal gerador = new GeradorNotaFiscal();
-		
 		NotaFiscal nf = gerador.geraNotaFiscal(fatura);
 		
 		double imposto = valorFatura * 0.06;
@@ -42,9 +42,7 @@ public class GeradorDeNotaFiscalTests {
 	public void verificaImpostoNotaTipoConsultoria() {
 		this.tipoServico = "CONSULTORIA";
 		
-		Fatura fatura = new Fatura(cliente, endereco, tipoServico, valorFatura);
-		
-		GeradorNotaFiscal gerador = new GeradorNotaFiscal();
+		fatura = new Fatura(cliente, endereco, tipoServico, valorFatura);
 		
 		NotaFiscal nf = gerador.geraNotaFiscal(fatura);
 		
@@ -59,9 +57,7 @@ public class GeradorDeNotaFiscalTests {
 	public void verificaImpostoNotaTipoTreinamento() {
 		this.tipoServico = "TREINAMENTO";
 		
-		Fatura fatura = new Fatura(cliente, endereco, tipoServico, valorFatura);
-		
-		GeradorNotaFiscal gerador = new GeradorNotaFiscal();
+		fatura = new Fatura(cliente, endereco, tipoServico, valorFatura);
 		
 		NotaFiscal nf = gerador.geraNotaFiscal(fatura);
 		
@@ -74,9 +70,6 @@ public class GeradorDeNotaFiscalTests {
 	
 	@Test
 	public void verificaNomeDoClienteNaNota() {
-		GeradorNotaFiscal gerador = new GeradorNotaFiscal();
-		
-		Fatura fatura = new Fatura(cliente, endereco, tipoServico, valorFatura);
 		NotaFiscal nf = gerador.geraNotaFiscal(fatura);
 		
 		assertEquals(cliente, nf.getCliente());
@@ -90,9 +83,6 @@ public class GeradorDeNotaFiscalTests {
 	
 	@Test
 	public void verificaValorDaNota() {
-		GeradorNotaFiscal gerador = new GeradorNotaFiscal();
-		
-		Fatura fatura = new Fatura(cliente, endereco, tipoServico, valorFatura);
 		NotaFiscal nf = gerador.geraNotaFiscal(fatura);
 		
 		assertEquals(valorFatura, nf.getValor(), DELTA);
@@ -106,9 +96,6 @@ public class GeradorDeNotaFiscalTests {
 	
 	@Test
 	public void verificaEnvioEmail() {
-		GeradorNotaFiscal gerador = new GeradorNotaFiscal();
-		
-		Fatura fatura = new Fatura(cliente, endereco, tipoServico, valorFatura);
 		NotaFiscal nf = gerador.geraNotaFiscal(fatura);
 		
 		assertFalse(nf.getFoiEnviadaPorEmail());
@@ -116,6 +103,17 @@ public class GeradorDeNotaFiscalTests {
 		nf = gerador.processaNotaFiscal(nf);
 		
 		assertTrue(nf.getFoiEnviadaPorEmail());
+	}
+	
+	@Test
+	public void verificaEnvioSAP() {
+		NotaFiscal nf = gerador.geraNotaFiscal(fatura);
+		
+		assertFalse(nf.getFoiEnviadaParaSAP());
+		
+		nf = gerador.processaNotaFiscal(nf);
+		
+		assertTrue(nf.getFoiEnviadaParaSAP());
 	}
 
 }
