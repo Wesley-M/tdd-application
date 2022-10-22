@@ -14,6 +14,8 @@ public class FaturaTests {
 	private Servico tipoServico;
 	private double valorFatura;
 	
+	private final static double DELTA = 0;
+	
 	private Fatura fatura;
 	
 	@Before
@@ -31,7 +33,7 @@ public class FaturaTests {
 		assertEquals(cliente, fatura.getCliente());
 		assertEquals(endereco, fatura.getEndereco());
 		assertEquals(tipoServico, fatura.getServico());
-		assertEquals(valorFatura, fatura.getValor());
+		assertEquals(valorFatura, fatura.getValor(), DELTA);
 	}
 
 }
