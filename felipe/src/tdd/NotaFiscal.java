@@ -2,7 +2,14 @@ package tdd;
 
 public class NotaFiscal {
 
+	private double taxa;
+	
 	public NotaFiscal(String cliente, double valor, String servico) {
+		if (servico.equals("CONSULTORIA")) {
+			this.taxa = 0.25;
+		} else {
+			this.taxa = 0.06;
+		}
 	}
 
 	public String getCliente() {
@@ -14,7 +21,7 @@ public class NotaFiscal {
 	}
 
 	public double getImposto() {
-		return this.getValor() * 0.06;
+		return this.getValor() * this.taxa;
 	}
 
 }
