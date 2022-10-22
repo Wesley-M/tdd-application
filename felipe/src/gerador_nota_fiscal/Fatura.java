@@ -11,6 +11,8 @@ public class Fatura {
 		
 		if (valor < 0) {
 			throw new Exception("Valor não pode ser negativo");
+		} else if (valor == 0) {
+			throw new Exception("Valor não pode ser igual a zero");
 		}
 		
 		this.cliente = cliente;

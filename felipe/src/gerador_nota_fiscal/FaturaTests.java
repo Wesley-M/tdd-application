@@ -43,5 +43,15 @@ public class FaturaTests {
 			assertEquals("Valor não pode ser negativo", e.getMessage());
 		}
 	}
+	
+	@Test
+	public void verificaCriarFaturaComValorIgualAZero() {
+		try {
+			valorFatura = 0;
+			fatura = new Fatura(cliente, endereco, tipoServico, valorFatura);
+		} catch (Exception e) {
+			assertEquals("Valor não pode ser igual a zero", e.getMessage());
+		}
+	}
 
 }
