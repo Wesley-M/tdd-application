@@ -63,5 +63,15 @@ public class FaturaTests {
 			assertEquals("Nome não pode ser null", e.getMessage());
 		}
 	}
+	
+	@Test
+	public void verificaCriarFaturaComNomeVazio() {
+		try {
+			cliente = "";
+			fatura = new Fatura(cliente, endereco, tipoServico, valorFatura);
+		} catch (Exception e) {
+			assertEquals("Nome não pode ser vazio", e.getMessage());
+		}
+	}
 
 }

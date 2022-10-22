@@ -15,6 +15,8 @@ public class Fatura {
 		
 		if (cliente == null) {
 			throw new Exception("Nome não pode ser null");
+		} else if (cliente.equals("")) {
+			throw new Exception("Nome não pode ser vazio");
 		}
 		
 		this.cliente = cliente;
