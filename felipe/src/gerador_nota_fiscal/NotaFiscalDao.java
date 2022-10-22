@@ -1,4 +1,4 @@
-package tdd;
+package gerador_nota_fiscal;
 
 public class NotaFiscalDao {
 	public void salva(NotaFiscal nf) { 
