@@ -1,7 +1,7 @@
 package com.tdd.positions;
 
 import com.tdd.enums.Position;
-import com.tdd.positions.*;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
