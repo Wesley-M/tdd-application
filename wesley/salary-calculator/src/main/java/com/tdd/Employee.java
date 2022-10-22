@@ -1,6 +1,6 @@
 package com.tdd;
 
-public class Employee {
+public abstract class Employee {
     private String name;
     private String email;
     private Double baseSalary;
@@ -39,9 +39,5 @@ public class Employee {
 
     public void setBaseSalary(Double baseSalary) {
         this.baseSalary = baseSalary;
-    }
-
-    public void setPosition(Position position) {
-        this.position = position;
     }
 }
