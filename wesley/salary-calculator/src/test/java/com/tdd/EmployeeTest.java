@@ -22,4 +22,20 @@ public class EmployeeTest {
         assertEquals(employee.getBaseSalary(), 6000);
         assertEquals(employee.getPosition(), Position.DEVELOPER);
     }
+
+    @Test
+    @DisplayName("Validating all employee possible positions")
+    void allEmployeePositionsAreValid() {
+        Employee auxEmployee = new Employee("Wesley Santos", "wesley123@gmail.com", 6000.0, Position.DEVELOPER);
+        assertEquals(auxEmployee.getPosition(), Position.DEVELOPER);
+
+        auxEmployee = new Employee("Wesley Santos", "wesley123@gmail.com", 6000.0, Position.DBA);
+        assertEquals(auxEmployee.getPosition(), Position.DBA);
+
+        auxEmployee = new Employee("Wesley Santos", "wesley123@gmail.com", 6000.0, Position.TESTER);
+        assertEquals(auxEmployee.getPosition(), Position.TESTER);
+
+        auxEmployee = new Employee("Wesley Santos", "wesley123@gmail.com", 6000.0, Position.MANAGER);
+        assertEquals(auxEmployee.getPosition(), Position.MANAGER);
+    }
 }
