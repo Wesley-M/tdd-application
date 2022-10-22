@@ -1,7 +1,5 @@
 package gerador_nota_fiscal;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
@@ -19,7 +17,7 @@ public class FaturaTests {
 	private Fatura fatura;
 	
 	@Before
-	public void setup() {
+	public void setup() throws Exception {
 		this.cliente = "Bob";
 		this.endereco = "Rua do Sol, 120, Centro, Rio Branco - AC";
 		this.tipoServico = Servico.OUTROS;
@@ -34,6 +32,16 @@ public class FaturaTests {
 		assertEquals(endereco, fatura.getEndereco());
 		assertEquals(tipoServico, fatura.getServico());
 		assertEquals(valorFatura, fatura.getValor(), DELTA);
+	}
+	
+	@Test
+	public void verificaCriarFaturaComValorNegativo() {
+		try {
+			valorFatura = -100;
+			fatura = new Fatura(cliente, endereco, tipoServico, valorFatura);
+		} catch (Exception e) {
+			assertEquals("Valor não pode ser negativo", e.getMessage());
+		}
 	}
 
 }

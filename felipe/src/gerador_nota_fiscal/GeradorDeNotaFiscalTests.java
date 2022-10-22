@@ -24,7 +24,7 @@ public class GeradorDeNotaFiscalTests {
 	private final static double TAXA_OUTROS = 0.06;
 	
 	@Before
-	public void setup() {
+	public void setup() throws Exception {
 		this.cliente = "Bob";
 		this.endereco = "Rua do Sol, 120, Centro, Rio Branco - AC";
 		this.tipoServico = Servico.OUTROS;
@@ -44,7 +44,7 @@ public class GeradorDeNotaFiscalTests {
 	}
 	
 	@Test
-	public void verificaImpostoNotaTipoConsultoria() {
+	public void verificaImpostoNotaTipoConsultoria() throws Exception {
 		this.tipoServico = Servico.CONSULTORIA;
 		
 		fatura = new Fatura(cliente, endereco, tipoServico, valorFatura);
@@ -59,7 +59,7 @@ public class GeradorDeNotaFiscalTests {
 	}
 	
 	@Test
-	public void verificaImpostoNotaTipoTreinamento() {
+	public void verificaImpostoNotaTipoTreinamento() throws Exception {
 		this.tipoServico = Servico.TREINAMENTO;
 		
 		fatura = new Fatura(cliente, endereco, tipoServico, valorFatura);
@@ -74,7 +74,7 @@ public class GeradorDeNotaFiscalTests {
 	}
 	
 	@Test
-	public void verificaNomeDoClienteNaNota() {
+	public void verificaNomeDoClienteNaNota() throws Exception {
 		NotaFiscal nf = gerador.geraNotaFiscal(fatura);
 		
 		assertEquals(cliente, nf.getCliente());
@@ -87,7 +87,7 @@ public class GeradorDeNotaFiscalTests {
 	}
 	
 	@Test
-	public void verificaValorDaNota() {
+	public void verificaValorDaNota() throws Exception {
 		NotaFiscal nf = gerador.geraNotaFiscal(fatura);
 		
 		assertEquals(valorFatura, nf.getValor(), DELTA);

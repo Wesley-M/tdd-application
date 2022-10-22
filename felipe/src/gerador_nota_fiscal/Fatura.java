@@ -7,7 +7,12 @@ public class Fatura {
 	private String endereco;
 	private double valor;
 
-	public Fatura(String cliente, String endereco, Servico servico, double valor) {
+	public Fatura(String cliente, String endereco, Servico servico, double valor) throws Exception {
+		
+		if (valor < 0) {
+			throw new Exception("Valor não pode ser negativo");
+		}
+		
 		this.cliente = cliente;
 		this.servico = servico;
 		this.endereco = endereco;
