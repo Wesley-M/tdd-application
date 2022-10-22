@@ -1,4 +1,4 @@
-package com.tdd;
+package com.tdd.positions;
 
 import com.tdd.positions.Developer;
 import org.junit.jupiter.api.BeforeEach;

@@ -1,4 +1,4 @@
-package com.tdd;
+package com.tdd.positions;
 
 import com.tdd.positions.Dba;
 import com.tdd.positions.Developer;

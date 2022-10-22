@@ -1,4 +1,4 @@
-package com.tdd;
+package com.tdd.positions;
 
 import com.tdd.enums.Position;
 import com.tdd.positions.*;
