@@ -50,5 +50,22 @@ public class GeradorDeNotaFiscalTests {
 		Assert.assertTrue(nf.getValor() == valorFatura);
 		Assert.assertTrue(nf.getImposto() == imposto);
 	}
+	
+	@Test
+	public void verificaNotaTipoTreinamento() {
+		this.tipoServico = "TREINAMENTO";
+		
+		Fatura fatura = new Fatura(cliente, endereco, tipoServico, valorFatura);
+		
+		GeradorNotaFiscal gerador = new GeradorNotaFiscal();
+		
+		NotaFiscal nf = gerador.geraNotaFiscal(fatura);
+		
+		double imposto = valorFatura * 0.15;
+		
+		Assert.assertTrue(nf.getCliente().equals(cliente));
+		Assert.assertTrue(nf.getValor() == valorFatura);
+		Assert.assertTrue(nf.getImposto() == imposto);
+	}
 
 }

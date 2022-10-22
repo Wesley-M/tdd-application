@@ -7,6 +7,8 @@ public class NotaFiscal {
 	public NotaFiscal(String cliente, double valor, String servico) {
 		if (servico.equals("CONSULTORIA")) {
 			this.taxa = 0.25;
+		} else if (servico.equals("TREINAMENTO")) {
+			this.taxa = 0.15;
 		} else {
 			this.taxa = 0.06;
 		}
