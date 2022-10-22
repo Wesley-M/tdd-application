@@ -7,11 +7,11 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class EmployeeTest {
-    Employee employee = null;
+    Developer employee = null;
 
     @BeforeEach
     public void init(){
-        employee = new Employee("Wesley Santos", "wesley123@gmail.com", 6000.0, Position.DEVELOPER);
+        employee = new Developer("Wesley Santos", "wesley123@gmail.com", 6000.0);
     }
 
     @Test
@@ -26,16 +26,16 @@ public class EmployeeTest {
     @Test
     @DisplayName("Validating all employee possible positions")
     void allEmployeePositionsAreValid() {
-        Employee auxEmployee = new Employee("Wesley Santos", "wesley123@gmail.com", 6000.0, Position.DEVELOPER);
+        Employee auxEmployee = new Developer("Wesley Santos", "wesley123@gmail.com", 6000.0);
         assertEquals(auxEmployee.getPosition(), Position.DEVELOPER);
 
-        auxEmployee = new Employee("Wesley Santos", "wesley123@gmail.com", 6000.0, Position.DBA);
+        auxEmployee = new Dba("Wesley Santos", "wesley123@gmail.com", 6000.0);
         assertEquals(auxEmployee.getPosition(), Position.DBA);
 
-        auxEmployee = new Employee("Wesley Santos", "wesley123@gmail.com", 6000.0, Position.TESTER);
+        auxEmployee = new Tester("Wesley Santos", "wesley123@gmail.com", 6000.0);
         assertEquals(auxEmployee.getPosition(), Position.TESTER);
 
-        auxEmployee = new Employee("Wesley Santos", "wesley123@gmail.com", 6000.0, Position.MANAGER);
+        auxEmployee = new Manager("Wesley Santos", "wesley123@gmail.com", 6000.0);
         assertEquals(auxEmployee.getPosition(), Position.MANAGER);
     }
 
@@ -50,8 +50,5 @@ public class EmployeeTest {
 
         employee.setBaseSalary(7500.0);
         assertEquals(employee.getBaseSalary(), 7500);
-
-        employee.setPosition(Position.MANAGER);
-        assertEquals(employee.getPosition(), Position.MANAGER);
     }
 }
