@@ -1,4 +1,6 @@
-package gerador_nota_fiscal.main;
+package gerador_nota_fiscal.main.entities;
+
+import gerador_nota_fiscal.main.enums.Servico;
 
 public class NotaFiscal {
 
@@ -17,6 +19,10 @@ public class NotaFiscal {
 		this.foiEnviadaParaSAP = false;
 		this.persistida = false;
 
+		this.calculaTaxa(servico);
+	}
+
+	private void calculaTaxa(Servico servico) {
 		if (servico == Servico.CONSULTORIA) {
 			this.taxa = 0.25;
 		} else if (servico == Servico.TREINAMENTO) {
