@@ -36,14 +36,19 @@ public abstract class Employee implements Salaried {
     }
 
     public void setName(String name) {
+        validateNullField(name, "name");
+        validateEmptyField(name, "name");
         this.name = name;
     }
 
     public void setEmail(String email) {
+        validateNullField(email, "email");
+        validateEmptyField(email, "email");
         this.email = email;
     }
 
     public void setBaseSalary(Double baseSalary) {
+        validateNullField(baseSalary, "base salary");
         validateNegativeOrZeroBaseSalary(baseSalary);
         this.baseSalary = baseSalary;
     }

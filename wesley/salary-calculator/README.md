@@ -18,9 +18,17 @@ Deve-se implementar uma calculadora de salário de funcionários. Um funcionári
 Para usar a calculadora, primeiro importe a classe `SalaryCalculator` e faça:
 
 - Todos os campos dos empregados são obrigatórios. Null ou vazio não são aceitos.
-- Salário não pode ser 0 ou negativo.
+- Salário não pode ser null, 0 ou negativo.
+- Como os campos são obrigatórios, setters inválidos não são permitidos.
 
 ```java
 Manager manager = new Manager('Felipe', 'felipe@gmail.com', 3000);
 SalaryCalculator.getSalary(manager); // 3000 * 0.8 = 2400
+
+manager.setName(null);       // Throws IllegalArgumentException
+manager.setName("");         // Throws IllegalArgumentException
+manager.setEmail(null);      // Throws IllegalArgumentException
+manager.setEmail("");        // Throws IllegalArgumentException
+manager.setBaseSalary(null); // Throws IllegalArgumentException
+manager.setBaseSalary(-1);   // Throws IllegalArgumentException
 ```
