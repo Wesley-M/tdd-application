@@ -18,10 +18,6 @@ public class GeradorNotaFiscal {
 		sap.envia(nf);
 		nfDao.salva(nf);
 		
-		nf.setFoiEnviadaPorEmail(true);
-		nf.setFoiEnviadaParaSAP(true);
-		nf.setPersistida(true);
-		
 		return nf;		
 	}
 
