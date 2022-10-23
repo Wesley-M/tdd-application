@@ -2,8 +2,6 @@ package com.tdd.positions;
 
 import com.tdd.enums.Position;
 import com.tdd.interfaces.Salaried;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 
 public abstract class Employee implements Salaried {
     private String name;
@@ -53,6 +51,16 @@ public abstract class Employee implements Salaried {
         this.baseSalary = baseSalary;
     }
 
+    public Double calculateDiscountedSalary(Double threshold, Double minDiscount, Double maxDiscount) {
+        Double salary = 0.0;
+        if (baseSalary >= threshold) {
+            salary = baseSalary * (1 - maxDiscount);
+        } else {
+            salary = baseSalary * (1 - minDiscount);
+        }
+        return salary;
+    }
+
     private void validate() {
         validateNullField(baseSalary, "base salary");
         validateNegativeOrZeroBaseSalary(baseSalary);
@@ -77,7 +85,7 @@ public abstract class Employee implements Salaried {
     }
 
     private void validateEmptyField(String str, String field) {
-        if (str.equals("")) {
+        if (str.trim().equals("")) {
             throw new IllegalArgumentException(field + " can't be empty");
         }
     }

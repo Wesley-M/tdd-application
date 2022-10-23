@@ -8,15 +8,6 @@ public class Developer extends Employee {
     }
 
     public Double getSalary() {
-        Double baseSalary = super.getBaseSalary();
-        Double salary;
-
-        if (baseSalary >= 3000) {
-            salary = baseSalary * 0.8;
-        } else {
-            salary = baseSalary * 0.9;
-        }
-
-        return salary;
+        return calculateDiscountedSalary(3000.0, 0.1, 0.2);
     }
 }

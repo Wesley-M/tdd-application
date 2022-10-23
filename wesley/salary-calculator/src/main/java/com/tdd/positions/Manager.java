@@ -9,15 +9,6 @@ public class Manager extends Employee {
 
     @Override
     public Double getSalary() {
-        Double baseSalary = super.getBaseSalary();
-        Double salary;
-
-        if (baseSalary >= 5000) {
-            salary = baseSalary * 0.7;
-        } else {
-            salary = baseSalary * 0.8;
-        }
-
-        return salary;
+        return calculateDiscountedSalary(5000.0, 0.2, 0.3);
     }
 }

@@ -9,15 +9,6 @@ public class Tester extends Employee {
 
     @Override
     public Double getSalary() {
-        Double baseSalary = super.getBaseSalary();
-        Double salary;
-
-        if (baseSalary >= 2000) {
-            salary = baseSalary * 0.75;
-        } else {
-            salary = baseSalary * 0.85;
-        }
-
-        return salary;
+        return calculateDiscountedSalary(2000.0, 0.15, 0.25);
     }
 }
