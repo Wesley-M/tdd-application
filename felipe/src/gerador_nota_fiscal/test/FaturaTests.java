@@ -1,7 +1,6 @@
 package gerador_nota_fiscal.test;
 
 import static org.junit.Assert.assertEquals;
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -42,7 +41,7 @@ public class FaturaTests {
 		try {
 			valorFatura = -100;
 			fatura = new Fatura(cliente, endereco, tipoServico, valorFatura);
-		} catch (Exception e) {
+		} catch (IllegalArgumentException e) {
 			assertEquals("Valor não pode ser menor ou igual a zero", e.getMessage());
 		}
 	}
@@ -52,7 +51,7 @@ public class FaturaTests {
 		try {
 			valorFatura = 0;
 			fatura = new Fatura(cliente, endereco, tipoServico, valorFatura);
-		} catch (Exception e) {
+		} catch (IllegalArgumentException e) {
 			assertEquals("Valor não pode ser menor ou igual a zero", e.getMessage());
 		}
 	}
@@ -62,7 +61,7 @@ public class FaturaTests {
 		try {
 			cliente = null;
 			fatura = new Fatura(cliente, endereco, tipoServico, valorFatura);
-		} catch (Exception e) {
+		} catch (IllegalArgumentException e) {
 			assertEquals("Nome não pode ser null", e.getMessage());
 		}
 	}
@@ -72,7 +71,7 @@ public class FaturaTests {
 		try {
 			cliente = "";
 			fatura = new Fatura(cliente, endereco, tipoServico, valorFatura);
-		} catch (Exception e) {
+		} catch (IllegalArgumentException e) {
 			assertEquals("Nome não pode ser vazio", e.getMessage());
 		}
 	}
