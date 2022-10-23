@@ -5,8 +5,8 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-import gerador_nota_fiscal.main.Fatura;
-import gerador_nota_fiscal.main.Servico;
+import gerador_nota_fiscal.main.entities.Fatura;
+import gerador_nota_fiscal.main.enums.Servico;
 
 public class FaturaTests {
 	

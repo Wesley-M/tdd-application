@@ -1,4 +1,6 @@
-package gerador_nota_fiscal.main;
+package gerador_nota_fiscal.main.services;
+
+import gerador_nota_fiscal.main.entities.NotaFiscal;
 
 public class SAP {
 

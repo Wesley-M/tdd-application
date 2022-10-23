@@ -1,4 +1,6 @@
-package gerador_nota_fiscal.main;
+package gerador_nota_fiscal.main.entities;
+
+import gerador_nota_fiscal.main.enums.Servico;
 
 public class NotaFiscal {
 

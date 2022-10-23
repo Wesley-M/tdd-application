@@ -7,10 +7,10 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-import gerador_nota_fiscal.main.Fatura;
 import gerador_nota_fiscal.main.GeradorNotaFiscal;
-import gerador_nota_fiscal.main.NotaFiscal;
-import gerador_nota_fiscal.main.Servico;
+import gerador_nota_fiscal.main.entities.Fatura;
+import gerador_nota_fiscal.main.entities.NotaFiscal;
+import gerador_nota_fiscal.main.enums.Servico;
 
 public class GeradorDeNotaFiscalTests {
 	
