@@ -2,6 +2,8 @@ package com.tdd.positions;
 
 import com.tdd.enums.Position;
 import com.tdd.interfaces.Salaried;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 public abstract class Employee implements Salaried {
     private String name;

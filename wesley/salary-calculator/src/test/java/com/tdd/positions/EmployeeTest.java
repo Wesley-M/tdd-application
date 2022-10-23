@@ -97,7 +97,7 @@ public class EmployeeTest {
 
     @Test
     @DisplayName("Null fields throw exception")
-    void checkIfNullFieldsThrowException() {
+    void whenCreatingEmployeeCheckIfNullFieldsThrowException() {
         checkForIllegal(
                 () -> new Developer(null, "wesley@gmail.com", 4000.0),
                 "name can't be null"
@@ -115,8 +115,29 @@ public class EmployeeTest {
     }
 
     @Test
+    @DisplayName("Setting null fields throw exception")
+    void whenSettingEmployeeCheckIfNullFieldsThrowException() {
+        Employee auxEmployee = new Developer("Wesley Santos", "wesley123@gmail.com", 6000.0);
+
+        checkForIllegal(
+                () -> auxEmployee.setName(null),
+                "name can't be null"
+        );
+
+        checkForIllegal(
+                () -> auxEmployee.setEmail(null),
+                "email can't be null"
+        );
+
+        checkForIllegal(
+                () -> auxEmployee.setBaseSalary(null),
+                "base salary can't be null"
+        );
+    }
+
+    @Test
     @DisplayName("Empty fields throw exception")
-    void checkIfEmptyFieldsThrowException() {
+    void whenCreatingEmployeeCheckIfEmptyFieldsThrowException() {
         checkForIllegal(
                 () -> new Developer("", "wesley@gmail.com", 4000.0),
                 "name can't be empty"
@@ -124,6 +145,22 @@ public class EmployeeTest {
 
         checkForIllegal(
                 () -> new Developer("Wesley", "", 4000.0),
+                "email can't be empty"
+        );
+    }
+
+    @Test
+    @DisplayName("Setting empty fields throw exception")
+    void whenSettingEmployeeCheckIfEmptyFieldsThrowException() {
+        Employee auxEmployee = new Developer("Wesley Santos", "wesley123@gmail.com", 6000.0);
+
+        checkForIllegal(
+                () -> auxEmployee.setName(""),
+                "name can't be empty"
+        );
+
+        checkForIllegal(
+                () -> auxEmployee.setEmail(""),
                 "email can't be empty"
         );
     }
