@@ -31,4 +31,18 @@
 
 ## Felipe
 
+### Bom: 
 
+- Uma das principais vantagens de se utilizar TDD é que pode reduzir muito a inserção de funcionalidades não especificadas
+  e código extra. Já que testamos diretamente o que esperar do sistema e apenas gerar o necessário para isso.
+  
+- Como o foco é ter sempre os testes primeiro, então o código sempre estará com uma boa cobertura de testes. E, assim, é fácil refatorar e
+  depois apenas rodar os testes para verificar que tudo ainda está funcionando como o esperado.
+  
+### Desafiador:
+
+- Achei a questão de o que de fato implementar apenas para um teste rodar seja desafiador. A pessoa pode ter uma tentação de já implementar outras coisas
+  sem fazer os testes primeiro.
+  
+### Difícil:
+- Pensar em bons casos de testes e, cosequentemente, cobrir situações inesperadas.
